@@ -12,6 +12,6 @@ public class ObjetoDeNegocio {
 		this.id = id;
 	}
 	
-	
+	public void validar() throws Exception {}
 
 }

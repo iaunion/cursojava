@@ -13,6 +13,14 @@ public class Usuario extends ObjetoDeNegocio {
 		this.nombre = nombre;
 	}
 	
-	
+	@Override
+	public void validar() throws Exception {
+
+		super.validar();
+		
+		if ((nombre == null) || (nombre.length()<3)) {
+			throw new Exception ("El nombre esta vacio o es demasiado corto");
+		}
+	}
 
 }
