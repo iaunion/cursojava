@@ -6,10 +6,11 @@ import org.indra.persistence.*;
 
 public class UsuarioService {
 	
-	private UsuarioRepositorio repo;
+	private IUsuarioRepositorio repo;
 
-	public UsuarioService () {
-		this.repo = new UsuarioRepositorio();
+	public UsuarioService (IUsuarioRepositorio repo) {
+//		this.repo = new UsuarioRepositorio();
+		this.repo = repo; //inyección de dependencias por argumento
 	}
 	
 	public Usuario registrarUsuarioNuevo (RegistroUsuarioDTO registro) throws Exception {
@@ -20,7 +21,7 @@ public class UsuarioService {
 		
 		Usuario nuevo = new Usuario(registro.getNombreDeseado());
 		nuevo.validar();
-		this.repo.addUsuario(nuevo);
+		this.repo.add(nuevo);
 		
 		return nuevo;
 	}

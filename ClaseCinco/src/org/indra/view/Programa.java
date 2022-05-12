@@ -1,6 +1,8 @@
 package org.indra.view;
 
 import org.indra.dto.*;
+import org.indra.persistence.IUsuarioRepositorio;
+import org.indra.persistence.UsuarioRepositorio;
 import org.indra.services.*;
 
 public class Programa {
@@ -9,7 +11,8 @@ public class Programa {
 		
 		System.out.println("Bienvenido a Indragram");
 		
-		UsuarioService usuarioService = new UsuarioService();
+		UsuarioRepositorio repo = new UsuarioRepositorio();
+		UsuarioService usuarioService = new UsuarioService(repo);
 		
 		System.out.println("Voy a probar a registrar un usuario nuevo");
 		

@@ -3,9 +3,13 @@ package org.indra.persistence;
 import org.indra.model.*;
 import java.util.*;
 
-public class UsuarioRepositorio {
+public class UsuarioRepositorio implements IUsuarioRepositorio {
 	
-	List<Usuario> usuarios = new ArrayList<Usuario>();
+	List<Usuario> usuarios = new ArrayList<Usuario>(); {{
+		new Usuario ("alice");
+		new Usuario ("bob");
+		new Usuario ("charles");
+	}};
 	
 	public Usuario buscarPorNombre (String nombre) {
 		
@@ -18,9 +22,10 @@ public class UsuarioRepositorio {
 		return result;
 	}
 	
-	public void addUsuario (Usuario usuario) {
+	public void add (Usuario usuario) {
 		//Simulo que guardo en la base de datos
 		this.usuarios.add(usuario);
 	}
+
 
 }
