@@ -3,7 +3,7 @@ package org.indra.persistence;
 import org.indra.model.*;
 import java.util.*;
 
-public class UsuarioRepositorio implements IUsuarioRepositorio {
+public class UsuarioRepositorioMock implements IUsuarioRepositorio {
 	
 	List<Usuario> usuarios = new ArrayList<Usuario>(); {{
 		new Usuario ("alice");
@@ -25,6 +25,12 @@ public class UsuarioRepositorio implements IUsuarioRepositorio {
 	public void add (Usuario usuario) {
 		//Simulo que guardo en la base de datos
 		this.usuarios.add(usuario);
+	}
+
+	@Override
+	public List<Usuario> buscarTodos() {
+		
+		return this.usuarios;
 	}
 
 
