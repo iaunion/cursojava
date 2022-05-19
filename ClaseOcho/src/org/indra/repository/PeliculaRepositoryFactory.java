@@ -2,7 +2,7 @@ package org.indra.repository;
 
 public abstract class PeliculaRepositoryFactory {
 	
-	public abstract IPeliculaRepository createRepository();
+	public abstract IPeliculaRepository createRepository() throws Exception;
 	
 	private static Class repositoryClass;
 	

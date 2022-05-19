@@ -1,12 +1,21 @@
 package org.indra.repository;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
 import org.indra.models.Pelicula;
 
-public class PeliculaMockRepository  implements IPeliculaRepository{
+public class PeliculaMockRepository implements IPeliculaRepository{
 	
 	private List<Pelicula> peliculas = new ArrayList<Pelicula>();
+	
+
+	public PeliculaMockRepository() throws Exception{
+		this.add(new Pelicula("La momia",160, LocalDate.of(1996, Month.JUNE, 2),"Sam Reini"));
+		this.add(new Pelicula("Dr Strange",200, LocalDate.of(2022, Month.MAY, 2),"Sam Reini"));
+		this.add(new Pelicula("Avatar",220, LocalDate.of(2009, Month.MAY, 2),"James Cameron"));
+	}
 
 	@Override
 	public List<Pelicula> findAll() throws Exception {
@@ -45,7 +54,7 @@ public class PeliculaMockRepository  implements IPeliculaRepository{
 	@Override
 	public void update(Pelicula pelicula) throws Exception {
 		this.delete(pelicula.getId());
-		this.add(pelicula);
+		this.peliculas.add(pelicula);
 	}
 	
 	
